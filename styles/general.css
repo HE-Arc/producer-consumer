@@ -1,4 +1,13 @@
+#content
+{
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 1024px;
+}
+
 canvas
 {
-    border: 1px solid #000;
+    border: 1px solid #CCC;
+    width: 100%;
 }
