@@ -6,7 +6,16 @@ var prod;
 var cons;
 var buff;
 
+var onPause;
+
 function main()
+{
+    init();
+
+    setInterval(update, Constants.UPDATE_TIME);
+}
+
+function init()
 {
     canvas = document.getElementById("animation");
     ctx    = canvas.getContext("2d");
@@ -15,19 +24,19 @@ function main()
     prod = new Producer(canvas, buff, 500);
     cons = new Consumer(canvas, buff, 700);
 
-    initSilders();
+    onPause = false;
 
-    setInterval(update, Constants.UPDATE_TIME);
+    initSilders();
 }
 
 function update()
 {
-    prod.update();
-    cons.update();
-
-    //console.log("Cons : " + cons.updateTime + " --> prod : " + prod.updateTime)
-
-    draw();
+    if(!onPause)
+    {
+        prod.update();
+        cons.update();
+        draw();
+    }
 }
 
 function draw()
@@ -48,22 +57,27 @@ function initSilders()
     document.getElementById('consumerRangeValue').innerHTML = cons.updateTime  + " ms";
 }
 
-function producerValueChanged(newValue)
-{
-    document.getElementById('producerRangeValue').innerHTML = newValue  + " ms";
-}
+// -- EVENTS -------------------------------------------------------------------
 
-function consumerValueChanged(newValue)
-{
-    document.getElementById('consumerRangeValue').innerHTML = newValue + " ms";
-}
+function producerValueChanged(newValue) { document.getElementById('producerRangeValue').innerHTML = newValue  + " ms"; }
+function consumerValueChanged(newValue) { document.getElementById('consumerRangeValue').innerHTML = newValue + " ms"; }
 
-function producerValueConfirmed(newValue)
-{
-    prod.updateTime = parseInt(newValue);
-}
+function producerValueConfirmed(newValue) { prod.updateTime = parseInt(newValue); }
+function consumerValueConfirmed(newValue) { cons.updateTime = parseInt(newValue); }
 
-function consumerValueConfirmed(newValue)
+function changeSynchonize() { this.buff.synchonized = !this.buff.synchonized; }
+function changePause()
 {
-    cons.updateTime = parseInt(newValue);
+    this.onPause = !this.onPause;
+
+    if(onPause)
+    {
+        document.getElementById('pauseButton').innerHTML = "Start";
+        document.getElementById('pauseButton').className = "btn bg-green";
+    }
+    else
+    {
+        document.getElementById('pauseButton').innerHTML = "Pause";
+        document.getElementById('pauseButton').className = "btn bg-red";
+    }
 }

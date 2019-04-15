@@ -28,7 +28,7 @@
                 <td class="adjust"></td>
                 <td class="normal"></td>
                 <td class="normal">
-                    <button class="btn bg-green">Start</button>
+                    <button id="pauseButton" class="btn bg-red" onclick="changePause()">Pause</button>
                 </td>
             </tr>
 
@@ -36,7 +36,7 @@
                 <td class="adjust"></td>
                 <td class="normal"></td>
                 <td class="normal">
-                    <button class="btn bg-blue">Restart</button>
+                    <button class="btn bg-blue" onclick="init()">Restart</button>
                 </td>
             </tr>
 
@@ -46,7 +46,7 @@
                 <td class="normal"></td>
                 <td class="normal">
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" checked onclick="changeSynchonize()">
                         <span class="switcher round"></span>
                     </label>
                 </td>

@@ -5,16 +5,12 @@ class Buffer
         this.canvas = canvas;
         this.size = size;
         this.buffer = new Array(size);
+        this.synchonized = true;
     }
 
     putElement(element, position)
     {
         this.buffer[position] = element;
-    }
-
-    canPopElement(position)
-    {
-        return this.buffer[position] != null;
     }
 
     popElement(position)
@@ -26,7 +22,12 @@ class Buffer
 
     canPut(position)
     {
-        return this.buffer[position] == null;
+        return this.buffer[position] == null || !this.synchonized;
+    }
+
+    canPopElement(position)
+    {
+        return this.buffer[position] != null;
     }
 
     getSize()

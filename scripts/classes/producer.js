@@ -15,22 +15,22 @@ class Producer
 
     update()
     {
+        if(this.objectColor == null)
+            this.objectColor = this.getRandomColor()
+
         if(this.put || this.buffer.canPut(this.bufferPointer))
         {
             this.timeLeft -= Constants.UPDATE_TIME;
             this.put = true;
 
-            if(this.objectColor == null)
-                this.objectColor = this.getRandomColor()
-
             if(this.timeLeft <= 0)
             {
-                this.timeLeft += this.updateTime;
+                this.timeLeft = this.updateTime;
                 //console.log(this.timeLeft)
                 this.buffer.putElement(this.objectColor, this.bufferPointer);
                 this.moveNext();
                 this.put = false;
-                this.objectColor = null
+                this.objectColor = null;
             }
         }
     }
@@ -54,7 +54,7 @@ class Producer
         let dist = this.canvas.height/2 - (yPos + elemSize/2);
         let objectY = yPos + dist - dist * this.timeLeft / this.updateTime;
 
-        if(this.put)
+        if(this.objectColor != null)
         {
             ctx.fillStyle = this.objectColor;
             ctx.beginPath();

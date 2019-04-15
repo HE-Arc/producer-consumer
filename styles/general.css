@@ -39,7 +39,7 @@ canvas {
 }
 
 .bg-red{
-    background-color: #4CAF50; /* Green */
+    background-color: #f44336; /* Red */
 }
 
 .bg-green{
@@ -47,5 +47,5 @@ canvas {
 }
 
 .bg-blue{
-    background-color: #2196F3; /* Green */
+    background-color: #2196F3; /* Blue */
 }
