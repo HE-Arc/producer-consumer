@@ -5,14 +5,16 @@
 
         <!-- STYLES ----------------------------------------------------------->
         <link rel="stylesheet" type="text/css" href="styles/general.css">
+        <link rel="stylesheet" type="text/css" href="styles/switch.css">
+        <link rel="stylesheet" type="text/css" href="styles/slider.css">
 
         <!-- SCRIPTS ---------------------------------------------------------->
         <script src="scripts/Main.js"></script>
         <script src="scripts/Index.js"></script>
 
+        <script src="scripts/classes/Buffer.js"></script>
         <script src="scripts/classes/Producer.js"></script>
         <script src="scripts/classes/Consumer.js"></script>
-        <script src="scripts/classes/Element.js"></script>
 
         <script src="scripts/classes/Constants.js"></script>
 
@@ -20,6 +22,60 @@
     </head>
     <body>
         <div id="content">
+        <table>
+
+            <tr>
+                <td class="adjust"></td>
+                <td class="normal"></td>
+                <td class="normal">
+                    <button class="btn bg-green">Start</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="adjust"></td>
+                <td class="normal"></td>
+                <td class="normal">
+                    <button class="btn bg-blue">Restart</button>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="adjust">Synchronize</td>
+                <td class="normal"></td>
+                <td class="normal">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="switcher round"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="adjust">Produce duration</td>
+                <td class="normal"><span id="producerRangeValue"></span></td>
+                <td class="normal">
+                    <div class="slidecontainer">
+                        <input id="producerRange" type="range" value="200" min="50" max="3000" step="50" class="slider"
+                        onchange="producerValueConfirmed(this.value)"
+                        oninput="producerValueChanged(this.value)"/>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="adjust">Consume duration</td>
+                <td class="normal"><span id="consumerRangeValue"></span></td>
+                <td class="normal">
+                    <div class="slidecontainer">
+                        <input id="consumerRange" type="range" value="200" min="50" max="3000" step="50" class="slider"
+                        onchange="consumerValueConfirmed(this.value)"
+                        oninput="consumerValueChanged(this.value)"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
             <canvas id="animation" width="1000" height="500"></canvas>
         </div>
     </body>

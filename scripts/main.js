@@ -1,56 +1,69 @@
 
 var canvas;
 var ctx;
+
 var prod;
 var cons;
-var buffer;
+var buff;
 
 function main()
 {
-    console.log("Start main !");
-
-
     canvas = document.getElementById("animation");
     ctx    = canvas.getContext("2d");
 
-    prod   = new Producer(canvas, ctx);
-    cons   = new Consumer(canvas, ctx);
-    buffer = new Array(Constants.BUFFER_SIZE);
+    buff = new Buffer(canvas, Constants.BUFFER_SIZE);
+    prod = new Producer(canvas, buff, 500);
+    cons = new Consumer(canvas, buff, 700);
 
-    buffer[5] = new Element(5, canvas, ctx);
-    buffer[9] = new Element(9, canvas, ctx);
-    buffer[0] = new Element(0, canvas, ctx);
+    initSilders();
 
-    draw();
-
-    console.log("End main !");
-    console.log(Constants.BUFFER_SIZE);
+    setInterval(update, Constants.UPDATE_TIME);
 }
 
+function update()
+{
+    prod.update();
+    cons.update();
 
+    //console.log("Cons : " + cons.updateTime + " --> prod : " + prod.updateTime)
+
+    draw();
+}
 
 function draw()
 {
-    let yCenter  = canvas.height / 2;
-    let elemSize = (canvas.width - Constants.BUFFER_SIZE * (Constants.ELEM_MARGIN + 1)) / Constants.BUFFER_SIZE;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    buff.draw(ctx);
+    prod.draw(ctx);
+    cons.draw(ctx);
+}
 
-    for(let i = 0; i < Constants.BUFFER_SIZE; i++)
-    {
-        let xPos = i * (elemSize + Constants.ELEM_MARGIN) + Constants.ELEM_MARGIN;
-        let yPos = yCenter - elemSize/2;
+function initSilders()
+{
+    document.getElementById('producerRange').value = prod.updateTime;
+    document.getElementById('consumerRange').value = cons.updateTime;
 
-        ctx.beginPath();
-        ctx.rect(xPos, yPos, elemSize, elemSize);
-        ctx.stroke();
+    document.getElementById('producerRangeValue').innerHTML = prod.updateTime  + " ms";
+    document.getElementById('consumerRangeValue').innerHTML = cons.updateTime  + " ms";
+}
 
-        if(buffer[i] != null)
-        {
-            buffer[i].draw(ctx, elemSize, yPos);
-        }
+function producerValueChanged(newValue)
+{
+    document.getElementById('producerRangeValue').innerHTML = newValue  + " ms";
+}
 
-        prod.draw(ctx);
-        cons.draw(ctx);
-    }
+function consumerValueChanged(newValue)
+{
+    document.getElementById('consumerRangeValue').innerHTML = newValue + " ms";
+}
 
+function producerValueConfirmed(newValue)
+{
+    prod.updateTime = parseInt(newValue);
+}
+
+function consumerValueConfirmed(newValue)
+{
+    cons.updateTime = parseInt(newValue);
 }

@@ -1,13 +1,51 @@
-#content
-{
-    border: 1px solid #CCC;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 1024px;
+#content {
+  border: 1px solid #CCC;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 1024px;
 }
 
-canvas
-{
-    border: 1px solid #CCC;
+table {
+  font-family: sans-serif;
+  width: 50%;
+}
+
+.normal{
+  white-space: nowrap;
+}
+.adjust {
+  width: 99%;
+}
+
+canvas {
+  border: 1px solid #CCC;
+  width: 100%;
+}
+
+.btn {
     width: 100%;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.btn:hover {
+  filter: brightness(85%);
+}
+
+.bg-red{
+    background-color: #4CAF50; /* Green */
+}
+
+.bg-green{
+    background-color: #4CAF50; /* Green */
+}
+
+.bg-blue{
+    background-color: #2196F3; /* Green */
 }
