@@ -22,61 +22,61 @@
     </head>
     <body>
         <div id="content">
-        <table>
+            <table>
+                <tr>
+                    <td class="adjust"></td>
+                    <td class="normal"></td>
+                    <td class="normal">
+                        <button id="pauseButton" class="btn bg-red" onclick="changePause()">Pause</button>
+                    </td>
+                </tr>
 
-            <tr>
-                <td class="adjust"></td>
-                <td class="normal"></td>
-                <td class="normal">
-                    <button id="pauseButton" class="btn bg-red" onclick="changePause()">Pause</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="adjust"></td>
-                <td class="normal"></td>
-                <td class="normal">
-                    <button class="btn bg-blue" onclick="init()">Restart</button>
-                </td>
-            </tr>
+                <tr>
+                    <td class="adjust"></td>
+                    <td class="normal"></td>
+                    <td class="normal">
+                        <button class="btn bg-blue" onclick="init()">Restart</button>
+                    </td>
+                </tr>
 
 
-            <tr>
-                <td class="adjust">Synchronize</td>
-                <td class="normal"></td>
-                <td class="normal">
-                    <label class="switch">
-                        <input type="checkbox" checked onclick="changeSynchonize()">
-                        <span class="switcher round"></span>
-                    </label>
-                </td>
-            </tr>
+                <tr>
+                    <td class="adjust">Synchronize</td>
+                    <td class="normal"></td>
+                    <td class="normal">
+                        <label class="switch">
+                            <input type="checkbox" checked onclick="changeSynchonize()">
+                            <span class="switcher round"></span>
+                        </label>
+                    </td>
+                </tr>
 
-            <tr>
-                <td class="adjust">Produce duration</td>
-                <td class="normal"><span id="producerRangeValue"></span></td>
-                <td class="normal">
-                    <div class="slidecontainer">
-                        <input id="producerRange" type="range" value="200" min="50" max="3000" step="50" class="slider"
-                        onchange="producerValueConfirmed(this.value)"
-                        oninput="producerValueChanged(this.value)"/>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td class="adjust">Produce duration</td>
+                    <td class="normal"><span id="producerRangeValue"></span></td>
+                    <td class="normal">
+                        <div class="slidecontainer">
+                            <input id="producerRange" type="range" value="200" min="50" max="3000" step="50" class="slider"
+                            onchange="producerValueConfirmed(this.value)"
+                            oninput="producerValueChanged(this.value)"/>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td class="adjust">Consume duration</td>
-                <td class="normal"><span id="consumerRangeValue"></span></td>
-                <td class="normal">
-                    <div class="slidecontainer">
-                        <input id="consumerRange" type="range" value="200" min="50" max="3000" step="50" class="slider"
-                        onchange="consumerValueConfirmed(this.value)"
-                        oninput="consumerValueChanged(this.value)"/>
-                    </div>
-                </td>
-            </tr>
-        </table>
+                <tr>
+                    <td class="adjust">Consume duration</td>
+                    <td class="normal"><span id="consumerRangeValue"></span></td>
+                    <td class="normal">
+                        <div class="slidecontainer">
+                            <input id="consumerRange" type="range" value="200" min="50" max="3000" step="50" class="slider"
+                            onchange="consumerValueConfirmed(this.value)"
+                            oninput="consumerValueChanged(this.value)"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <canvas id="animation" width="1000" height="500"></canvas>
+            <span id="errorMsg"></span>
         </div>
     </body>
 </html>

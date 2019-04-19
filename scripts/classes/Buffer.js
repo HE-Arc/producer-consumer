@@ -10,7 +10,10 @@ class Buffer
 
     putElement(element, position)
     {
+        if(this.buffer[position] != null)
+            document.getElementById('errorMsg').innerHTML = "Put error";
         this.buffer[position] = element;
+
     }
 
     popElement(position)
@@ -27,6 +30,9 @@ class Buffer
 
     canPopElement(position)
     {
+        if(!this.synchonized && this.buffer[position] == null)
+            document.getElementById('errorMsg').innerHTML = "Attempt to access an empty case";
+
         return this.buffer[position] != null;
     }
 

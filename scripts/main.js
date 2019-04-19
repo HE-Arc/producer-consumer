@@ -58,6 +58,8 @@ function initHTML()
 
     document.getElementById('pauseButton').innerHTML = "Pause";
     document.getElementById('pauseButton').className = "btn bg-red";
+
+    document.getElementById('errorMsg').innerHTML = "";
 }
 
 // -- EVENTS -------------------------------------------------------------------
