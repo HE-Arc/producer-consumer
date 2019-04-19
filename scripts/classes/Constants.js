@@ -4,7 +4,7 @@ class Constants
 }
 
 //----- LOGIC ------------------------------------------------------------------
-Constants.BUFFER_SIZE = 20;
+Constants.BUFFER_SIZE = 15;
 Constants.UPDATE_TIME = 30;
 
 //----- DRAW -------------------------------------------------------------------
