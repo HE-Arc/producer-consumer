@@ -5,6 +5,10 @@
   width: 1024px;
 }
 
+#errorMsg{
+    color: red;
+}
+
 table {
   font-family: sans-serif;
   width: 50%;

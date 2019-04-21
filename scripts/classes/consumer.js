@@ -61,5 +61,10 @@ class Consumer
         ctx.beginPath();
         ctx.arc(xPos + elemSize/2, yPos + elemSize/2, elemSize/2, 0, 2 * Math.PI);
         ctx.stroke();
+
+        ctx.fillStyle = '#000';
+        ctx.font = "24px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("Consumer", xPos+elemSize/2  , yPos + elemSize + 2*Constants.ELEM_MARGIN + 20);
     }
 }

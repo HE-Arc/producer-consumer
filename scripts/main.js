@@ -26,7 +26,7 @@ function init()
 
     onPause = false;
 
-    initSilders();
+    initHTML();
 }
 
 function update()
@@ -48,13 +48,18 @@ function draw()
     cons.draw(ctx);
 }
 
-function initSilders()
+function initHTML()
 {
     document.getElementById('producerRange').value = prod.updateTime;
     document.getElementById('consumerRange').value = cons.updateTime;
 
     document.getElementById('producerRangeValue').innerHTML = prod.updateTime  + " ms";
     document.getElementById('consumerRangeValue').innerHTML = cons.updateTime  + " ms";
+
+    document.getElementById('pauseButton').innerHTML = "Pause";
+    document.getElementById('pauseButton').className = "btn bg-red";
+
+    document.getElementById('errorMsg').innerHTML = "";
 }
 
 // -- EVENTS -------------------------------------------------------------------
