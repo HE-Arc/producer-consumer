@@ -35,7 +35,7 @@ class Buffer
         return this.size;
     }
 
-    draw(ctx)
+    draw(ctx) // add number here
     {
         let caseSize = (this.canvas.width - (this.size + 1) * Constants.ELEM_MARGIN) / this.size;
         let elemSize = caseSize - Constants.ELEM_MARGIN * 2;
@@ -53,14 +53,9 @@ class Buffer
 
             if(this.buffer[i] != null)
             {
-                ctx.fillStyle = this.buffer[i];
+                ctx.fillStyle = this.buffer[i].getColor();
 
-                ctx.beginPath();
-                ctx.arc(xPos + caseSize/2, yPos + caseSize/2, elemSize/2, 0, 2 * Math.PI);
-                ctx.stroke();
-                ctx.fill();
-
-                ctx.fillStyle = "#FFF";
+                this.buffer[i].draw(ctx, xPos + caseSize/2, yPos + caseSize/2, elemSize/2)
             }
         }
     }

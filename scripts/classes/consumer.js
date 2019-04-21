@@ -10,7 +10,7 @@ class Consumer
         this.timeLeft = this.updateTime;
 
         this.took = false;
-        this.objectColor = null;
+        this.object = null;
     }
 
     update()
@@ -20,8 +20,8 @@ class Consumer
             this.timeLeft -= Constants.UPDATE_TIME;
             this.took = true;
 
-            if(this.objectColor == null)
-                this.objectColor = this.buffer.popElement(this.bufferPointer);
+            if(this.object == null)
+                this.object = this.buffer.popElement(this.bufferPointer);
 
             if(this.timeLeft <= 0)
             {
@@ -29,7 +29,7 @@ class Consumer
 
                 this.moveNext();
                 this.took = false;
-                this.objectColor = null;
+                this.object = null;
             }
         }
     }
@@ -55,14 +55,7 @@ class Consumer
 
         if(this.took)
         {
-            ctx.fillStyle = this.objectColor;
-            ctx.beginPath();
-            ctx.beginPath();
-            ctx.arc(xPos + elemSize/2, objectY + elemSize/2, dSize/2, 0, 2 * Math.PI);
-            ctx.stroke();
-            ctx.fill()
-
-            ctx.fillStyle = '#FFF';
+            this.object.draw(ctx, xPos + elemSize/2, objectY + elemSize/2, dSize/2)
         }
 
         ctx.beginPath();
