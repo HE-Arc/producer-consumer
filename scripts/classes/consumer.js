@@ -11,6 +11,10 @@ class Consumer
 
         this.took = false;
         this.object = null;
+
+        this.image = new Image();
+        this.image.src = "D:\\ETUDES\\Conception_OS\\Projet\\Prod_Cons_V2\\producer-consumer\\img\\consumer.png"
+        //this.image.src = "../img/consumer.png"
     }
 
     update()
@@ -65,6 +69,8 @@ class Consumer
         ctx.fillStyle = '#000';
         ctx.font = "24px Arial";
         ctx.textAlign = "center";
-        ctx.fillText("Consumer", xPos+elemSize/2  , yPos + elemSize + 2*Constants.ELEM_MARGIN + 20);
+        //ctx.fillText("Consumer", xPos+elemSize/2, yPos + elemSize + 2*Constants.ELEM_MARGIN + 20);
+
+        ctx.drawImage(this.image, xPos - 10, yPos + elemSize + 2*Constants.ELEM_MARGIN); 
     }
 }

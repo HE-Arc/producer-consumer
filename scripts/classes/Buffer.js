@@ -11,7 +11,7 @@ class Buffer
     putElement(element, position)
     {
         if(this.buffer[position] != null)
-            document.getElementById('errorMsg').innerHTML = "Put error";
+            document.getElementById('errorMsg').innerHTML = "Put error, element " + this.buffer[position].getNumber() + " got overwritten";
         this.buffer[position] = element;
 
     }

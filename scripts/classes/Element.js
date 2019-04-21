@@ -33,18 +33,18 @@ class Element
 
         if (this.number.toString().length == 1)
         {
-            ctx.font = "20px Arial";
-            ctx.fillText(this.number, x-6, y+7); 
+            ctx.font = "30px Arial";
+            ctx.fillText(this.number, x, y+10); 
         }
         else if(this.number.toString().length == 2)
         {
-            ctx.font = "15px Arial";
-            ctx.fillText(this.number, x-9, y+5); 
+            ctx.font = "25px Arial";
+            ctx.fillText(this.number, x, y+9); 
         }
         else
         {
-            ctx.font = "15px Arial";
-            ctx.fillText(this.number, x-13, y+5); 
+            ctx.font = "20px Arial";
+            ctx.fillText(this.number, x-1, y+7); 
         }
     }
 }

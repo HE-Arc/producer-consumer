@@ -11,7 +11,11 @@ class Producer
 
         this.put = false;
         this.object = null;
-        this.objectCounter = 0;
+        this.objectCounter = 1;
+
+        this.image = new Image();
+        this.image.src = "D:\\ETUDES\\Conception_OS\\Projet\\Prod_Cons_V2\\producer-consumer\\img\\producer.png"
+        //this.image.src = "../img/consumer.png"
     }
 
     update()
@@ -69,7 +73,9 @@ class Producer
         ctx.fillStyle = '#000';
         ctx.font = "24px Arial";
         ctx.textAlign = "center";
-        ctx.fillText("Producer", xPos + elemSize/2 , yPos - 2*Constants.ELEM_MARGIN);
+        //ctx.fillText("Producer", xPos + elemSize/2 , yPos - 2*Constants.ELEM_MARGIN);
+
+        ctx.drawImage(this.image, xPos - 8, yPos - 2*Constants.ELEM_MARGIN - 90);
     }
 
     getRandomColor()
