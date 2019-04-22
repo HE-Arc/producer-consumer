@@ -43,7 +43,7 @@ class Buffer
 
     draw(ctx) // add number here
     {
-        let caseSize = (this.canvas.width - (this.size + 1) * Constants.ELEM_MARGIN) / this.size;
+        let caseSize = ((this.canvas.width - (this.size + 1) * Constants.ELEM_MARGIN) / this.size);
         let elemSize = caseSize - Constants.ELEM_MARGIN * 2;
 
         let yCenter = this.canvas.height/2;
@@ -60,7 +60,6 @@ class Buffer
             if(this.buffer[i] != null)
             {
                 ctx.fillStyle = this.buffer[i].getColor();
-
                 this.buffer[i].draw(ctx, xPos + caseSize/2, yPos + caseSize/2, elemSize/2)
             }
         }

@@ -22,29 +22,29 @@ class Element
     }
 
     draw(ctx, x, y, length)
-    {
+    {    
+        ctx.textAlign = "center";
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(x, y, length, 0, 2 * Math.PI);
         ctx.stroke();
         ctx.fill()
 
-        ctx.fillStyle = '#000'; // FFF ?
-
+        ctx.fillStyle = '#FFF';
         if (this.number.toString().length == 1)
         {
-            ctx.font = "30px Arial";
-            ctx.fillText(this.number, x, y+10); 
+            ctx.font = "60px Arial";
+            ctx.fillText(this.number, x, y+15);
         }
         else if(this.number.toString().length == 2)
         {
-            ctx.font = "25px Arial";
-            ctx.fillText(this.number, x, y+9); 
+            ctx.font = "50px Arial";
+            ctx.fillText(this.number, x, y+15);
         }
         else
         {
-            ctx.font = "20px Arial";
-            ctx.fillText(this.number, x-1, y+7); 
+            ctx.font = "40px Arial";
+            ctx.fillText(this.number, x-1, y+12);
         }
     }
 }

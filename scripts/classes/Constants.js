@@ -8,4 +8,4 @@ Constants.BUFFER_SIZE = 15;
 Constants.UPDATE_TIME = 30;
 
 //----- DRAW -------------------------------------------------------------------
-Constants.ELEM_MARGIN = 5;
+Constants.ELEM_MARGIN = 10;

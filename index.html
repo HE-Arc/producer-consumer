@@ -23,26 +23,12 @@
     </head>
     <body>
         <div id="content">
+            <h1>Producer-consumer</h1>
+            <hr>
             <table>
-                <tr>
-                    <td class="adjust"></td>
-                    <td class="normal"></td>
-                    <td class="normal">
-                        <button id="pauseButton" class="btn bg-red" onclick="changePause()">Pause</button>
-                    </td>
-                </tr>
 
                 <tr>
-                    <td class="adjust"></td>
-                    <td class="normal"></td>
-                    <td class="normal">
-                        <button class="btn bg-blue" onclick="init()">Restart</button>
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td class="adjust">Synchronize</td>
+                    <td class="normal"><div class="title">Synchronize</div></td>
                     <td class="normal"></td>
                     <td class="normal">
                         <label class="switch">
@@ -50,10 +36,15 @@
                             <span class="switcher round"></span>
                         </label>
                     </td>
+                    <td class="adjust"></td>
+                    <td class="normal">
+                        <button id="pauseButton" class="btn bg-red" onclick="changePause()">Pause</button>
+                    </td>
+
                 </tr>
 
                 <tr>
-                    <td class="adjust">Produce duration</td>
+                    <td class="normal"><div class="title">Produce duration</div></td>
                     <td class="normal"><span id="producerRangeValue"></span></td>
                     <td class="normal">
                         <div class="slidecontainer">
@@ -62,10 +53,15 @@
                             oninput="producerValueChanged(this.value)"/>
                         </div>
                     </td>
+                    <td class="adjust"></td>
+                    <td class="normal">
+                        <button class="btn bg-blue" onclick="init()">Restart</button>
+                    </td>
+
                 </tr>
 
                 <tr>
-                    <td class="adjust">Consume duration</td>
+                    <td class="normal"><div class="title">Consume duration</div></td>
                     <td class="normal"><span id="consumerRangeValue"></span></td>
                     <td class="normal">
                         <div class="slidecontainer">
@@ -74,9 +70,12 @@
                             oninput="consumerValueChanged(this.value)"/>
                         </div>
                     </td>
+                    <td class="adjust"></td>
+                    <td class="normal"></td>
                 </tr>
             </table>
-            <canvas id="animation" width="1000" height="500"></canvas>
+            <hr>
+            <canvas id="animation" width="2000" height="650"></canvas>
             <span id="errorMsg"></span>
         </div>
     </body>

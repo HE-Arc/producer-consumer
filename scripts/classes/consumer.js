@@ -13,7 +13,8 @@ class Consumer
         this.object = null;
 
         this.image = new Image();
-        this.image.src = "D:\\ETUDES\\Conception_OS\\Projet\\Prod_Cons_V2\\producer-consumer\\img\\consumer.png"
+        //this.image.src = "D:\\ETUDES\\Conception_OS\\Projet\\Prod_Cons_V2\\producer-consumer\\img\\consumer.png"
+        this.image.src = "img\\consumer.png"
         //this.image.src = "../img/consumer.png"
     }
 
@@ -57,20 +58,21 @@ class Consumer
         let dist = this.canvas.height/2 - (yPos + elemSize/2);
         let objectY = yPos + dist * this.timeLeft / this.updateTime;
 
+        ctx.drawImage(this.image, xPos-elemSize/4, yPos-elemSize/4,
+                        1.5*elemSize, 1.5*elemSize);
+
         if(this.took)
         {
             this.object.draw(ctx, xPos + elemSize/2, objectY + elemSize/2, dSize/2)
         }
 
-        ctx.beginPath();
+        /*ctx.beginPath();
         ctx.arc(xPos + elemSize/2, yPos + elemSize/2, elemSize/2, 0, 2 * Math.PI);
-        ctx.stroke();
+        ctx.stroke();*/
 
-        ctx.fillStyle = '#000';
-        ctx.font = "24px Arial";
-        ctx.textAlign = "center";
         //ctx.fillText("Consumer", xPos+elemSize/2, yPos + elemSize + 2*Constants.ELEM_MARGIN + 20);
 
-        ctx.drawImage(this.image, xPos - 10, yPos + elemSize + 2*Constants.ELEM_MARGIN); 
+        //ctx.drawImage(this.image, xPos - 10, yPos + elemSize + 2*Constants.ELEM_MARGIN);
+
     }
 }
